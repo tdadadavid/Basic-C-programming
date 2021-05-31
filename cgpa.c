@@ -9,7 +9,8 @@ int main(void){
     int matricNo;
     int number;
     int numberOfCourses;
-
+    double result;
+    double new;
 
 
     printf("Enter your details:\n");
@@ -25,8 +26,8 @@ int main(void){
    
     
     numberOfCourses = scanf("%d" , number);
-
-    double result = getPoints(numberOfCourses);
+    new = ToDouble(numberOfCourses);
+    result = getResult(numberOfCourses);
     printf("%d" , result);
     
 }
@@ -58,7 +59,7 @@ double getPoints(double stdScore){
 }
 
 
-double getTotalCredit(int numberOfCourses){
+double getResult(double numberOfCourses){
    
     double scores;
     double stdPoints;
@@ -86,6 +87,7 @@ double getTotalCredit(int numberOfCourses){
 
     }
         
-    return CGPA = GPA / totalStdPoints;
- 
+
+    CGPA = GPA / totalStdPoints;
+    return CGPA;
 }

@@ -1,2 +1,1 @@
-printf("Department: ");
-    scanf("%s" , &stdDepartment);
+numberOfCourses
