@@ -1,1 +1,1 @@
-        
+        GPA = stdPoints * courseUnit;

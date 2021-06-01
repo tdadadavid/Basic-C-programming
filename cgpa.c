@@ -28,10 +28,10 @@ int main(void){
 
     puts("*********************************");
    
-    printf("Number OF Courses Offering: \n");
-    input = scanf("%d "  , number);
+    printf("Number OF Courses Offering: ");
+    scanf("%d"  , &number);
     puts("*********************************");
-    result =  getResult(input);
+    result =  getResult(number);
 
 
     printf("%d" , result);
@@ -52,8 +52,9 @@ int getPoints(int stdScore){
     else if (stdScore >= 40 & stdScore <= 49){
         return 2;
     }
-    else 
+    else{
         return 1;
+    } 
     
 }
 
@@ -74,22 +75,29 @@ int getResult(int numberOfCourses){
 
     for (int i = 1; i <= numberOfCourses; i++){
         printf("Exam_Score: ");
-        scanf("%d " , &scores);
+        scanf("%d" , &scores);
         printf("Course_Units: ");
-        scanf("%d \n" , &courseUnit);
+        scanf("%d" , &courseUnit);
 
     
         stdPoints = getPoints(scores);
-        printf("%d \n" , stdPoints);
+        printf("students points: %d\n" , stdPoints);
         totalStdPoints += stdPoints;
+        printf("This is totalStudentPoints: %d\n" , totalStdPoints);
 
         puts("*********************************");
 
-        GPA = stdPoints * courseUnit;
+        GPA = (stdPoints * courseUnit);
         totalGPA += GPA;
+        printf("This is totalGPA: %d\n" , totalGPA );
+        
+        // the totalGPA , Gpa , totalstdPoints , are
+        // giving wrong values
 
     }
 
-    CGPA = GPA / totalStdPoints;
-    return CGPA;
+    CGPA = totalGPA / totalStdPoints;
+    printf("This is GPA: %d\n" , GPA );
+    printf("This is studentsPoints: %d\n" , stdPoints );
+    return  CGPA;
 }
