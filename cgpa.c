@@ -2,6 +2,9 @@
 #include <stdlib.h>
 #include <math.h>
 
+double getResult(double numberOfCourses); // function prototype
+
+
 int main(void){
 
     char stdName[] = "";
@@ -10,7 +13,7 @@ int main(void){
     int number;
     int numberOfCourses;
     double result;
-    double new;
+    double input;
 
 
     printf("Enter your details:\n");
@@ -24,10 +27,20 @@ int main(void){
 
     puts("*********************************");
    
-    
-    numberOfCourses = scanf("%d" , number);
-    new = ToDouble(numberOfCourses);
-    result = getResult(numberOfCourses);
+   printf("Number OF Courses Offering: ");
+   /* 
+        this is were it worked last
+        and it is accepting an input 
+        after that it crashes!!!
+
+   */
+
+    // input = scanf(" %d" , number);
+
+    result = printf("%d " , getResult(2));
+
+    puts("*********************************");
+
     printf("%d" , result);
     
 }
@@ -36,26 +49,20 @@ int main(void){
 
 double getPoints(double stdScore){
     if(stdScore >= 70 & stdScore <= 100){
-        printf("Grade => A");
         return 5.0;
     }
     else if(stdScore >= 60 & stdScore <= 69){
-        printf("Grade => B");
         return 4.0;
     }
     else if(stdScore >= 50 & stdScore <= 59){
-        printf("Grade => C");
         return 3.0;
     }
     else if (stdScore >= 40 & stdScore <= 49){
-        printf("Grade => D");
         return 2.0;
     }
-    else if(stdScore >= 35 & stdScore <= 39){
-        printf("Grade => E");
+    else 
         return 1.0;
-    }
-    else printf("You failed");
+    
 }
 
 
@@ -69,15 +76,17 @@ double getResult(double numberOfCourses){
     double GPA;
     double CGPA;
 
-    printf("Enter Your Scores and Course Units: ");
+    printf("Enter Your Scores and Course Units: \n");
 
-    for (int i = 0; i <= numberOfCourses; i++){
+    puts("*********************************");
+
+    for (int i = 1; i <= numberOfCourses; i++){
         printf("Exam_Score: ");
         scanf("%f " , &scores);
         printf("Course_Units: ");
-        scanf("%d" , &courseUnit);
+        scanf("%d \n" , &courseUnit);
 
-        puts("*******************************");
+        puts("*********************************");
     
         stdPoints = getPoints(scores);
         totalStdPoints += stdPoints;
@@ -86,7 +95,6 @@ double getResult(double numberOfCourses){
         totalGPA += GPA;
 
     }
-        
 
     CGPA = GPA / totalStdPoints;
     return CGPA;
