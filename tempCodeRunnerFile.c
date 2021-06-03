@@ -1,1 +1,2 @@
-        GPA = stdPoints * courseUnit;
+CGPA = totalQualityPoints / totalUnits;
+    return CGPA;

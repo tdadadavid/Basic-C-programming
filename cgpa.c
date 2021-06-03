@@ -2,14 +2,17 @@
 #include <stdlib.h>
 #include <math.h>
 
-int getResult(int numberOfCourses); // function prototype
 int getPoints(int stdScore); // function prototype
+int getResult(int numberOfCourses);
 
 
-int main(void){
 
-    char stdName[] = "";
-    char stdDepartment[] = "";
+int main(){
+
+    
+    char stdFirstName[20];
+    char stdLastName[20];
+    char stdDepartment[20];
     int matricNo;
     int number;
     int numberOfCourses;
@@ -19,9 +22,9 @@ int main(void){
 
     printf("Enter your details:\n");
     printf("Name: ");
-    scanf("%s" , &stdName);
+    scanf("%s%s" , &stdFirstName, &stdLastName);
     printf("Department: ");
-    scanf("%s" , &stdDepartment);
+    scanf("%s", &stdDepartment);
     printf("Matric Number: ");
     scanf("%d" , &matricNo);
     
@@ -33,13 +36,13 @@ int main(void){
     puts("*********************************");
     result =  getResult(number);
 
-
-    printf("%d" , result);
+    printf("Your CGPA is  %d" , result);
 }
 
 
 
 int getPoints(int stdScore){
+
     if(stdScore >= 70 & stdScore <= 100){
         return 5;
     }
@@ -62,10 +65,11 @@ int getPoints(int stdScore){
 int getResult(int numberOfCourses){
    
     int scores;
-    int stdPoints;
-    int totalStdPoints;
-    int totalGPA;
+    int studentPoints ;
+    int qualityPoints;
     int courseUnit;
+    int totalQualityPoints = 0;
+    int totalUnits = 0;
     int GPA;
     int CGPA;
 
@@ -73,31 +77,29 @@ int getResult(int numberOfCourses){
 
     puts("*********************************");
 
-    for (int i = 1; i <= numberOfCourses; i++){
+
+    
+    for (int i = 0; i < numberOfCourses; i++){
         printf("Exam_Score: ");
         scanf("%d" , &scores);
         printf("Course_Units: ");
         scanf("%d" , &courseUnit);
 
+        puts("*****************************");
+
     
-        stdPoints = getPoints(scores);
-        printf("students points: %d\n" , stdPoints);
-        totalStdPoints += stdPoints;
-        printf("This is totalStudentPoints: %d\n" , totalStdPoints);
+        studentPoints = getPoints(scores);
+        printf("%d\n" , studentPoints);
+        qualityPoints = studentPoints * courseUnit;
 
-        puts("*********************************");
+        totalUnits += courseUnit;
+        totalQualityPoints += qualityPoints;
 
-        GPA = (stdPoints * courseUnit);
-        totalGPA += GPA;
-        printf("This is totalGPA: %d\n" , totalGPA );
-        
-        // the totalGPA , Gpa , totalstdPoints , are
-        // giving wrong values
+        // printf("%d %d" , studentPoints , qualityPoints);
 
     }
 
-    CGPA = totalGPA / totalStdPoints;
-    printf("This is GPA: %d\n" , GPA );
-    printf("This is studentsPoints: %d\n" , stdPoints );
-    return  CGPA;
+    CGPA = totalQualityPoints / totalUnits;
+    return CGPA;
+
 }
