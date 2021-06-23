@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1584205420 source:c:\users\danieldada\desktop\spirit\all codes\practice codes\c++ and c codes\mypractice\practice\testquestions\testqeustion2\2to100\main.cpp
+	<iostream>
+
+1623946452 source:c:\users\danieldada\desktop\spirit\all codes\practice codes\c++ and c codes\mypractice\practice\testquestions\testqeustion2\2to100\main.c
+	<stdio.h>
+	<stdlib.h>
+

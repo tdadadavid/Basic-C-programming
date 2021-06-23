@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1624389414 source:c:\users\danieldada\desktop\spirit\all codes\practice codes\c++ and c codes\mypractice\practice\testquestions\sumarray\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stddef.h>
+
